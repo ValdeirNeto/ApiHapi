@@ -39,6 +39,7 @@ module.exports = {
   register: async (server) => {
     await server.methods.loadRoutes(_.compact(getFiles('routes.js', 'public')));
     await server.methods.loadRoutes(_.compact(getFiles('routes.js', 'admin')));
+    await server.methods.loadRoutes(_.compact(getFiles('routes.js')));
   },
   name: 'modules',
   version: '1.0.0'

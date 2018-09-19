@@ -1,7 +1,7 @@
 'use strict';
 
 const Joi = require('joi');
-const Schema = require('../autenticacao.schema');
+const Schema = require('./schema');
 
 const schema = Schema.getSchema();
 

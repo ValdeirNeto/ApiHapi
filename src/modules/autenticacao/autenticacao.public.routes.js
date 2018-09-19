@@ -1,7 +1,7 @@
 'use strict';
 
-const Controller = require('./autenticacao.public.controller');
-const Validator = require('./autenticacao.public.validation');
+const Controller = require('./controller');
+const Validator = require('./validation');
 
 module.exports = {
   register: async (server) => {

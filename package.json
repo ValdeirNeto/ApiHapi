@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "./node_modules/.bin/nodemon index.js",
     "eslint": "./node_modules/.bin/eslint . --ext .js",
-    "test": "./node_modules/.bin/lab -l -v -m 60000 -r console -o stdout -r html -o coverage/coverage.html -r lcov -o coverage/lcov.info  --pattern 'spec' ./src/test/index.spec.js ./src/modules/$1"
+    "test": "./node_modules/.bin/lab -l -v -m 60000 -r console -o stdout -r lcov -o coverage/lcov.info  --pattern 'spec' ./src/test/index.spec.js ./src/modules/$1",
+    "test-report": "./node_modules/.bin/nyc --reporter=lcov yarn run test"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -44,6 +45,7 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "nyc": "^13.0.1"
   }
 }

@@ -37,7 +37,9 @@ module.exports = {
         method: 'POST',
         path: '/admin/usuario',
         config: {
-          auth: 'jwt',
+          auth: {
+            scope: ['admin']
+          },
           description: 'Criando o Usuario',
           notes: 'Criando o usuario',
           tags: ['api'],
