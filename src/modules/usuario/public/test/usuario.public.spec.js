@@ -34,15 +34,5 @@ describe('Usuario', () => {
     expect(response.result.id).to.exist();
     expect(response.result.id).to.equals('1');
   });
-
-  it('Deve retornar um erro ao listagem com usuario invalido', async () => {
-    const response = await server.inject({
-      method: 'GET',
-      url: '/v1/usuario/111111111',
-      headers: { 'Authorization': `Bearer ${token}` },
-    });
-
-    expect(response.statusCode).to.equals(400);
-  });
 });
 });
