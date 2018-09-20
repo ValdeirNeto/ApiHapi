@@ -5,7 +5,7 @@ async function list(request, replay) {
   try {
     const { ListaTarefas, Usuario } = request.database;
   
-    const teste1 = await ListaTarefas.findAll({
+    const value = await ListaTarefas.findAll({
       offset: request.offset(),
       limit: request.limit(),
       include: [{
@@ -14,7 +14,7 @@ async function list(request, replay) {
       }]
     }); 
   
-    return teste1;    
+    return value;    
   } catch (err) {
     return err;
   }
