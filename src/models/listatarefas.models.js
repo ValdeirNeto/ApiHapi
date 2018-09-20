@@ -1,6 +1,5 @@
 'use strict';
 
-
 module.exports = (sequelize, DataTypes) => {
   const ListaTarefas = sequelize.define('ListaTarefas', {
     id: {
@@ -34,24 +33,22 @@ module.exports = (sequelize, DataTypes) => {
     createdAt: 'data_cadastro',
     updatedAt: 'data_atualizacao',
     schema: 'public',
-    
-    scope: {
-      Usuario: function (usuarioId) {
+
+    scopes: {
+      usuario: function (usuarioId) {
         return {
           where: {
             usuario: usuarioId
           }
         };
       }
-    },
+    }
   });
 
- 
   ListaTarefas.associate = function (models) {
-    models.Usuario.hasMany(models.ListaTarefas, { foreignKey: 'id', as: 'ListaTarefas' });
+    models.Usuario.hasMany(models.ListaTarefas, { foreignKey: 'usuario_id', as: 'ListaTarefas' });
     models.ListaTarefas.belongsTo(models.Usuario, { foreignKey: 'usuario_id', as: 'Usuarios' });
   };
-
 
   return ListaTarefas;
 };

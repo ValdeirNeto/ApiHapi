@@ -2,8 +2,23 @@
 
 
 async function list(request, replay) {
-  const { ListaTarefas } = request.database;
-  return await ListaTarefas.findAndCountAll();
+  try {
+    const { ListaTarefas, Usuario } = request.database;
+  
+    const teste1 = await ListaTarefas.findAll({
+      offset: request.offset(),
+      limit: request.limit(),
+      include: [{
+        model: Usuario,
+        as: 'Usuarios',
+      }]
+    }); 
+  
+    return teste1;    
+  } catch (err) {
+    return err;
+  }
+
 }
 
 async function get(request, replay) {

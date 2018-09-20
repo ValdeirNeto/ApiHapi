@@ -23,6 +23,12 @@ module.exports = {
       db[model.name] = model;
     });
 
+    Object.keys(db).forEach((model) => {
+      if('associate' in db[model]){
+        db[model].associate(db);
+      }
+    });
+
     return await server.decorate('request', 'database', _.extend({
       Sequelize,
       sequelize,
