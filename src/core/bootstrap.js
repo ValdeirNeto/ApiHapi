@@ -1,6 +1,7 @@
 'use strict';
 
 /* eslint no-console: ["error", { allow: ["log", "warn", "error" ]}] */
+
 const path = require('path');
 const fs = require('fs');
 const Promise = require('bluebird');
