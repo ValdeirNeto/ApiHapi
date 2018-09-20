@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 
 const generateToken = (usuario, expiresIn) => ({
   access_token: jwt.sign({
+    id: usuario.id,
     email: usuario.email,
     scope: ['public', 'admin']
   }, 'token', {expiresIn: expiresIn}),
